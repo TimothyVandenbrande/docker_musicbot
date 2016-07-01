@@ -4,6 +4,7 @@ MAINTAINER TimothyVandenbrande, https://github.com/SexualRhinoceros/MusicBot
 
 ADD musicbot /musicbot
 WORKDIR /musicbot
+VOLUME /musicbot/config
 
 RUN sudo apt-get install software-properties-common -y \
     && sudo add-apt-repository ppa:fkrull/deadsnakes -y \
@@ -20,9 +21,6 @@ RUN sudo apt-get install software-properties-common -y \
     && wget https://bootstrap.pypa.io/get-pip.py \
     && sudo python3.5 get-pip.py \
     && sudo pip install -r requirements.txt
-
-#Add volume for configuration
-VOLUME /musicBot/config
 
 #RunIt
 CMD python3.5 run.py
